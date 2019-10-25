@@ -1,3 +1,3 @@
 ## Simple Calculator App in React
 
-![alt text](https://raw.githubusercontent.com/eminbayrak/simplecalculator/master/screenshot.png)
+![screenshot](https://github.com/eminbayrak/simplecalculator/blob/master/public/scrshot.png)
