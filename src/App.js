@@ -1,26 +1,69 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { Button } from "./components/Button";
+import { evaluate } from "mathjs";
+import { Input } from "./components/Input";
+import { ClearButton } from "./components/ClearButton";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      input: ""
+    };
+  }
+
+  addToInput = val => {
+    this.setState({ input: this.state.input + val });
+  };
+
+  handleEqual = () => {
+    this.setState({ input: evaluate(this.state.input) });
+  }
+
+  render() {
+    return (
+      <div className="app">
+        <div className="calc-wrapper">
+          <Input input={this.state.input} />
+          <div className="row">
+            <ClearButton handleClear={() => this.setState({ input: "" })}>
+              C
+            </ClearButton>
+            <Button>%</Button>
+            <Button>±</Button>
+
+            <Button handleClick={this.addToInput}>÷</Button>
+          </div>
+          <div className="row">
+            <Button handleClick={this.addToInput}>7</Button>
+            <Button handleClick={this.addToInput}>8</Button>
+            <Button handleClick={this.addToInput}>9</Button>
+            <Button handleClick={this.addToInput}>*</Button>
+          </div>
+          <div className="row">
+            <Button handleClick={this.addToInput}>4</Button>
+            <Button handleClick={this.addToInput}>5</Button>
+            <Button handleClick={this.addToInput}>6</Button>
+            <Button handleClick={this.addToInput}>-</Button>
+          </div>
+          <div className="row">
+            <Button handleClick={this.addToInput}>1</Button>
+            <Button handleClick={this.addToInput}>2</Button>
+            <Button handleClick={this.addToInput}>3</Button>
+            <Button handleClick={this.addToInput}>+</Button>
+          </div>
+          <div className="row">
+            <Button handleClick={this.addToInput}>0</Button>
+            <Button handleClick={this.addToInput}>000</Button>
+            <Button handleClick={this.addToInput}>.</Button>
+            <Button handleClick={() => this.handleEqual()}>=</Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

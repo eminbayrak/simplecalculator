@@ -1,0 +1,10 @@
+.clear-button {
+    width: 50%;
+    height: 50%;
+    border: 1px solid #777777;  
+    text-align: center;
+    line-height: 80px;
+    font-size: 3em;
+    cursor: pointer;
+    background-color: #d1d1d1;
+  }

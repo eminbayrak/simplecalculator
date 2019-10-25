@@ -1,0 +1,17 @@
+.button-wrapper {
+  width: 50%;
+  height: 50%;
+  border: 1px solid #777777;
+  text-align: center;
+  line-height: 80px;
+  font-size: 3em;
+  cursor: pointer;
+}
+
+.operator {
+  background:  linear-gradient(to bottom, rgba(252,156,23,1) 0%, rgba(247,126,27,1) 100%);
+  cursor: pointer;
+  color: white;
+  border-right: 0;
+  font-size: 3em;
+}
